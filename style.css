@@ -1,0 +1,168 @@
+        html {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgb(83, 83, 83);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-image: url("shinku.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            font-weight: 500;
+            margin-bottom: 35px;
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            color: #590d0d;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 6px solid #e94d58;
+        }
+
+        .cell {
+            width: 60px; /* Adjust the width to your preference */
+            height: 60px; /* Adjust the height to your preference */
+            text-align: center;
+            justify-content: center;
+            font-size: 25px; /* Adjust the font size to your preference */
+            border: 2px solid rgb(230, 230, 230);
+            margin-trim: inline;
+            margin-top: -2px;
+            margin-bottom: -2px;
+            margin-left: -2px;
+            margin-right: -2px;
+            background-color: #de31623c;
+            transition: all 0.3s ease-in-out;
+            box-sizing: border-box; /* Include padding and border in the total width and height */
+            z-index: 1;
+            padding: 0;
+        }
+
+
+        input {
+            outline: none;
+        }
+
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        #grid-area {
+            display: flex;
+            justify-content: center;
+        }
+
+        #grid {
+            width: 500px;
+            height: 500px;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.255);
+            background-position: center;
+                box-sizing: border-box; /* Include padding and border in the total width and height */
+
+        }
+
+
+        table {
+            border-collapse: collapse;
+            border: 6px solid #e94d58;
+            border-spacing: 0; /* Add this line to collapse border spacing */
+        }
+
+        table tr:nth-child(3n) td,
+        table tr:nth-child(3n+3) 
+        td{
+        
+            border-bottom: 5px solid #e94d58;
+            margin-bottom: 0px;
+            z-index: 10;
+        }
+
+        table td:nth-child(3n){
+            border-right: 5px solid #e94d58;
+            margin-right: 0px;
+            z-index: 10;
+        }
+
+        table td:nth-child(3n) .cell{
+            border-right: none;
+            margin-right: -1px;
+        }
+
+
+        table td:nth-child(3n + 1) .cell {
+            border-left: none;
+            margin-left: -1px;
+
+        }
+
+
+        table tr:first-child .cell {
+            border-top: none;
+            margin-top: -1px;
+
+        }
+
+
+        tr:last-child .cell {
+            border-bottom: none;
+            margin-bottom: -1px;
+        }
+
+        tr:nth-child(3n) .cell {
+            border-bottom: none;
+            margin-bottom: -1px;
+        }
+
+
+        tr:nth-child(3n + 1) .cell {
+            border-top: none;
+            margin-top: -1px;
+        }
+
+
+
+
+        input{
+            outline: none;
+        }
+
+        button{
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: "Diphylleia", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: bolder;
+            background-color: #ffbf00a0;
+            color: #820300;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgb(215, 215, 215);
+            border: 2px solid #e94d58;
+            font-size: 1.2em;
+        }
+
+        button:hover{
+            background-color: #afafaf;
+        }
+
+        .solved{
+            background-color: #ffbf0069;
+            transition: all 0.25s ease-in-out;
+        }
