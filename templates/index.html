@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="icon" href="https://i.pinimg.com/originals/16/77/0c/16770c0b6d1b927c91306af219aced07.png">
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+    <title>Sudoku Solver</title>
+</head>
+
+<body>
+   <h1>Sodoku Solver</h1>
+    <div id ="grid-area"> 
+       <table>
+            <tbody id="grid">
+                
+            </tbody>
+       </table>
+    </div>
+    
+    <br>
+    <div id="button-container">
+    <button id="solve-grid">Solve Puzzle</button>
+    <!--<button id="solve-cell">Solve Cell</button>!-->
+    <button id="reset-grid">Reset Board</button>
+    <input id='upload' type="file" class="hidden" accept="image/*" onchange="performPost()"/>
+    <label id="upload-image" for="upload">Upload Image</label>
+    </div>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>    
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+   <script>
+      function performPost() {
+         var formData = new FormData();
+         var fileInput = document.getElementById('upload');
+         var file = fileInput.files[0];
+
+         if (file) {
+            formData.append('file', file);
+
+            $.ajax({
+               type: "POST",
+               url: "{{ url_for('upload_image') }}",
+               data: formData,
+               processData: false,
+               contentType: false,
+               success: function(response) {
+                  console.log('File uploaded successfully');
+               },
+               error: function(error) {
+                  console.error('Error uploading file:', error);
+               }
+            });
+         }
+         else {
+            alert("Error uploading image, please try again!");
+         }
+      }
+   </script>
+
+</html>
