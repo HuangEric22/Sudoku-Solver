@@ -50,6 +50,7 @@
                contentType: false,
                success: function(response) {
                   fileInput.value = "";
+                  reset();
                   fillGrid(response);
                },
                error: function(error) {

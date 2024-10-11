@@ -22,6 +22,7 @@ def upload_image():
         if file:
             filename = file.filename
             file_path = os.path.join(application.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
             board = extract_sudoku(file_path)
             grid = extract_number(board)
             # print(grid, type(grid))
