@@ -49,16 +49,16 @@
                processData: false,
                contentType: false,
                success: function(response) {
-                  console.log('File uploaded successfully');
+                  fileInput.value = "";
+                  fillGrid(response);
                },
                error: function(error) {
+                  fileInput.value = "";
                   console.error('Error uploading file:', error);
                }
             });
          }
-         else {
-            alert("Error uploading image, please try again!");
-         }
+
       }
    </script>
 

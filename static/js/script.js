@@ -18,6 +18,15 @@ document.addEventListener("DOMContentLoaded", function() {
             input.type = "number";
             input.className = "cell";
             input.id = `cell-${r}-${c}`;
+
+            input.addEventListener('input', function() {
+                if (input.value === "") {
+                    input.classList.remove("filled"); // Remove filled class if empty
+                } else {
+                    input.classList.add("filled"); // Add filled class if a number is entered
+                }
+            });
+                        
             cell.appendChild(input);
             newRow.appendChild(cell);
         }
@@ -33,7 +42,7 @@ async function reset() {
         for (let c = 0; c < gridSize; c++) {
             const cellId = `cell-${r}-${c}`;
             const cell = document.getElementById(cellId);
-            cell.classList.remove("user-input", "solved");
+            cell.classList.remove("user-input", "solved", "filled");
             cell.value = "";
         }
     }
@@ -96,7 +105,7 @@ async function solveSudoku() {
 
                 if (!cell.classList.contains("user-input")) {
                     cell.value = sudokuArray[r][c];
-                    cell.classList.add("solved");
+                    cell.classList.add("solved"); 
                     await sleep(25);
                 }
             }
@@ -238,11 +247,21 @@ function hasDuplicateInSubgrid(grid, startRow, startCol) {
     return hasDuplicate(subgrid);
 }
 
-async function processImage(image) {
+async function fillGrid(board) {
     
-}
-
-async function test() {
-    console.log("hello!")
-    reset();
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            const cellId = `cell-${i}-${j}`;
+            const cell = document.getElementById(cellId);
+            
+            if (board[i][j] > 0) {
+                sleep(25);
+                cell.classList.add("filled");
+                cell.value = board[i][j];
+            }
+            else {
+                board[i][j] = "";    
+            }
+        }
+    }
 }
